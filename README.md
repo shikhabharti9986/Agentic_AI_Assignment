@@ -151,6 +151,6 @@ streamlit run app/streamlit_app.py
 
 ---
 
-# Author
+# Developer
 
-Shikha Bharti
+Deepshikha Bharti
