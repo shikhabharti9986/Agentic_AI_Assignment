@@ -1,138 +1,156 @@
-<<<<<<< HEAD
 # Online Store Support Agent
 
-A simple AI agent that answers customer questions for an online store by selecting the right tools, chaining them when needed, and returning clear customer-friendly responses.
+An AI-powered customer support agent for an online store that can answer questions about orders, products, recommendations, and cheaper alternatives.
 
-## Features
+The project uses Gemini API, Streamlit, and a modular agent architecture.
 
-- `run_agent(question: str) -> str` as the main assignment entry point
-- Tool selection for:
-  - `get_order(order_id)`
-  - `search_products(query)`
-  - `get_product(product_id)`
-- Multi-step chaining for questions like cheaper alternatives
-- Graceful handling of invalid orders/products and empty search results
-- Rule-based planner with optional OpenAI enhancement
-- Tool call logging to console and `agent.log`
-- Streamlit web UI
-- Unit tests with `pytest`
+---
 
-## Project Structure
+# Features
+
+* AI-powered customer support agent
+* Gemini LLM integration
+* Modern Streamlit chat interface
+* Product search support
+* Order tracking support
+* Product recommendations
+* Cheaper alternative suggestions
+* Error handling for invalid queries
+* Logging support using `agent.log`
+* Modular project structure
+
+---
+
+# Project Structure
 
 ```text
 store-ai-agent/
-├── src/
-│   ├── agent/
-│   │   ├── planner.py      # Intent detection and tool planning
-│   │   ├── executor.py     # Tool execution and chaining
-│   │   ├── responder.py    # Customer-friendly responses
-│   │   └── run_agent.py    # Main run_agent function
-│   ├── tools/
-│   │   ├── data.py         # Mock store catalog and orders
-│   │   └── store_tools.py  # Tool implementations
-│   └── logging_config.py
+│
 ├── app/
 │   └── streamlit_app.py
-├── tests/
-│   └── test_agent.py
+│
 ├── docs/
-│   └── DESIGN.md
-├── samples/
-│   └── SAMPLE_IO.md
+│
+├── src/
+│   ├── agent/
+│   │   └── run_agent.py
+│   │
+│   ├── tools/
+│   │   ├── orders.py
+│   │   ├── products.py
+│   │   └── search.py
+│   │
+│   └── data/
+│       ├── orders.json
+│       └── products.json
+│
+├── venv/
+├── .env
+├── .env.example
+├── .gitignore
+├── agent.log
 ├── main.py
+├── README.md
 └── requirements.txt
 ```
 
-## Setup
+---
+
+# Installation
+
+Clone the repository:
 
 ```bash
-cd store-ai-agent
-python -m venv .venv
+git clone https://github.com/shikhabharti9986/Agentic_AI_Assignment.git
+```
 
-# Windows
-.venv\Scripts\activate
+Move into project folder:
 
+```bash
+cd Agentic_AI_Assignment
+```
+
+Create virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate virtual environment (Windows):
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-Optional LLM support:
+---
 
-```bash
-copy .env.example .env
-# Add your OPENAI_API_KEY
+# Environment Variables
+
+Create a `.env` file:
+
+```env
+GEMINI_API_KEY=your_api_key_here
 ```
 
-The agent works without an API key using the built-in rule-based planner and response templates.
+---
 
-## Usage
+# Run the Application
 
-### Python
-
-```python
-from src.agent.run_agent import run_agent
-
-print(run_agent("Where is order ORD-1002?"))
-```
-
-### CLI demo
-
-```bash
-python main.py "Where is order ORD-1002?"
-python main.py
-```
-
-### Streamlit UI
+Start Streamlit app:
 
 ```bash
 streamlit run app/streamlit_app.py
 ```
 
-### Tests
+---
 
-```bash
-pytest
-```
+# Example Questions
 
-## Approach
+* Where is order ORD-1002?
+* Tell me about product P-201
+* Do you have running shoes?
+* Is there a cheaper alternative?
+* Best products in market
 
-1. **Plan** – Detect intent from the question and choose initial tool calls.
-2. **Execute** – Call tools in order and chain follow-up calls when needed.
-3. **Respond** – Convert grounded tool outputs into a friendly answer without inventing data.
+---
 
-Example chaining for cheaper alternatives:
+# Technologies Used
 
-```text
-Question -> get_order(ORD-1002)
-         -> get_product(P-101)
-         -> search_products("shoes")
-         -> compare prices and respond
-```
+* Python
+* Streamlit
+* Gemini API
+* google-genai
+* python-dotenv
+* Git & GitHub
 
-## Sample Data
+---
 
-Orders:
+# Agent Workflow
 
-- `ORD-1001`, `ORD-1002`, `ORD-1003`
+1. User asks a question
+2. Agent detects intent
+3. Appropriate tools are selected
+4. Tool outputs are processed
+5. Customer-friendly response is generated
 
-Products:
+---
 
-- Shoes: `P-101`, `P-102`, `P-103`
-- Electronics: `P-201`, `P-202`
-- Apparel: `P-301`
+# Bonus Features
 
-See `samples/SAMPLE_IO.md` for more example inputs and outputs.
+* Gemini AI integration
+* Streamlit chat UI
+* Logging support
+* Modular architecture
+* GitHub repository
 
-## Design Notes
+---
 
-See `docs/DESIGN.md` for architecture and design decisions.
+# Author
 
-## Evaluation Checklist
-
-- Correct tool selection
-- Tool chaining for multi-step questions
-- Error handling for invalid IDs and empty searches
-- No fabricated data in responses
-- Logging, tests, and optional web UI included
-=======
-# Agentic_AI_Assignment
->>>>>>> 5c6b71551b33b3c8173697412347d4f994f16ea6
+Shikha Bharti
