@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Online Store Support Agent
 
 A simple AI agent that answers customer questions for an online store by selecting the right tools, chaining them when needed, and returning clear customer-friendly responses.
@@ -132,3 +133,6 @@ See `docs/DESIGN.md` for architecture and design decisions.
 - Error handling for invalid IDs and empty searches
 - No fabricated data in responses
 - Logging, tests, and optional web UI included
+=======
+# Agentic_AI_Assignment
+>>>>>>> 5c6b71551b33b3c8173697412347d4f994f16ea6
